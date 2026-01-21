@@ -195,7 +195,59 @@
     <!-- End Import soft/hard Area -->
 
     <!-- Form -->
-    <section id="form" class="our-achievement section">
+     <section id="form" class="our-achievement section">
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1 col-md-12 col-12">
+      <div class="title text-center mb-4">
+        <h2>Join the Waitlist</h2>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8 col-12">
+
+      <!-- Form submits directly to Apps Script, target hidden iframe to avoid page reload -->
+      <form 
+        class="wow fadeInUp form-container" 
+        data-wow-delay=".6s"
+        action="https://script.google.com/macros/s/AKfycbz7YarXF2zmyD9hQAjbSokkdo4EW02Qx5OcVwJzki3TYkLtwZlLO9lwk5U-vWEYad0t/exec" 
+        method="POST" 
+        target="hidden_iframe"
+      >
+        <div class="form-group mb-3">
+          <input type="text" class="form-control form-field" name="name" placeholder="Name" required>
+        </div>
+        <div class="form-group mb-3">
+          <input type="email" class="form-control form-field" name="email" placeholder="Email" required>
+        </div>
+        <div class="form-group mb-3">
+          <input type="tel" class="form-control form-field" name="whatsapp" placeholder="WhatsApp (optional)">
+        </div>
+
+        <!-- Optional hidden field to track source -->
+        <input type="hidden" name="source" value="GitHub">
+
+        <!-- Honeypot for spam -->
+        <input type="text" name="company" style="display:none">
+
+        <div class="button wow fadeInLeft submit-button" data-wow-delay=".8s">
+          <button type="submit" class="btn btn-alt w-100">
+            <i class="lni lni-users me-2"></i> Submit
+          </button>
+        </div>
+
+        <!-- Success / error message -->
+        <p id="form-message" style="margin-top:10px;"></p>
+      </form>
+
+      <!-- Hidden iframe to submit without reload -->
+      <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+    </div>
+  </div>
+</section>
+
+    <!-- <section id="form" class="our-achievement section">
         <div class="row">
             <div class="col-lg-10 offset-lg-1 col-md-12 col-12">
                 <div class="title text-center mb-4">
@@ -225,7 +277,7 @@
 
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- End Form Area -->
 
     
