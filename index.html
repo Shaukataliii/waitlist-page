@@ -195,91 +195,57 @@
     <!-- End Import soft/hard Area -->
 
     <!-- Form -->
-     <section id="form" class="our-achievement section">
-  <div class="row">
-    <div class="col-lg-10 offset-lg-1 col-md-12 col-12">
-      <div class="title text-center mb-4">
-        <h2>Join the Waitlist</h2>
-      </div>
-    </div>
-  </div>
-  <div class="row justify-content-center">
-    <div class="col-lg-6 col-md-8 col-12">
-
-      <!-- Form submits directly to Apps Script, target hidden iframe to avoid page reload -->
-      <form 
-        class="wow fadeInUp form-container" 
-        data-wow-delay=".6s"
-        action="https://script.google.com/macros/s/AKfycbxBGM_ALyv7tMwaQQKcCSF_D-4mhMDKveGMgA2QrQlIoG9c2jHs5kkXz4809yDwCyZM/exec" 
-        method="POST" 
-        target="hidden_iframe"
-      >
-        <div class="form-group mb-3">
-          <input type="text" class="form-control form-field" name="name" placeholder="Name" required>
-        </div>
-        <div class="form-group mb-3">
-          <input type="email" class="form-control form-field" name="email" placeholder="Email" required>
-        </div>
-        <div class="form-group mb-3">
-          <input type="tel" class="form-control form-field" name="whatsapp" placeholder="WhatsApp (optional)">
-        </div>
-
-        <!-- Optional hidden field to track source -->
-        <input type="hidden" name="source" value="GitHub">
-
-        <!-- Honeypot for spam -->
-        <input type="text" name="company" style="display:none">
-
-        <div class="button wow fadeInLeft submit-button" data-wow-delay=".8s">
-          <button type="submit" class="btn btn-alt w-100">
-            <i class="lni lni-users me-2"></i> Submit
-          </button>
-        </div>
-
-        <!-- Success / error message -->
-        <p id="form-message" style="margin-top:10px;"></p>
-      </form>
-
-      <!-- Hidden iframe to submit without reload -->
-      <iframe name="hidden_iframe" style="display:none;"></iframe>
-
-    </div>
-  </div>
-</section>
-
-    <!-- <section id="form" class="our-achievement section">
+    <section id="form" class="our-achievement section">
         <div class="row">
             <div class="col-lg-10 offset-lg-1 col-md-12 col-12">
-                <div class="title text-center mb-4">
-                    <h2>Join the Waitlist</h2>
-                </div>
+            <div class="title text-center mb-4">
+                <h2>Join the Waitlist</h2>
+            </div>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-8 col-12">
 
-                <form class="wow fadeInUp form-container" data-wow-delay=".6s">
-                    <div class="form-group mb-3">
-                        <input type="text" class="form-control form-field" placeholder="Name" required>
-                    </div>
-                    <div class="form-group mb-3">
-                        <input type="email" class="form-control form-field" placeholder="Email" required>
-                    </div>
-                    <div class="form-group mb-3">
-                        <input type="tel" class="form-control form-field" placeholder="WhatsApp (optional)">
-                    </div>
-                    <div class="button wow fadeInLeft submit-button" data-wow-delay=".8s">
-                        <a href="javascript:void(0)" class="btn btn-alt w-100">
-                            <i class="lni lni-users me-2"></i> Submit
-                        </a>
-                    </div>
-                </form>
+            <!-- Form submits directly to Apps Script -->
+            <form 
+                class="wow fadeInUp form-container" 
+                data-wow-delay=".6s"
+                action="https://script.google.com/macros/s/AKfycbxBGM_ALyv7tMwaQQKcCSF_D-4mhMDKveGMgA2QrQlIoG9c2jHs5kkXz4809yDwCyZM/exec" 
+                method="POST" 
+                target="hidden_iframe"
+            >
+                <div class="form-group mb-3">
+                    <input type="text" class="form-control form-field" name="name" placeholder="Name" required>
+                </div>
+                <div class="form-group mb-3">
+                    <input type="email" class="form-control form-field" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group mb-3">
+                    <input type="tel" class="form-control form-field" name="whatsapp" placeholder="WhatsApp (optional)">
+                </div>
+
+                <!-- Optional hidden field to track source -->
+                <input type="hidden" name="source" value="GitHub">
+
+                <!-- Honeypot for spam -->
+                <input type="text" name="company" style="display:none">
+
+                <div class="button wow fadeInLeft submit-button" data-wow-delay=".8s">
+                    <button type="submit" class="btn btn-alt w-100">
+                        <i class="lni lni-users me-2"></i> Submit
+                    </button>
+                </div>
+
+                <!-- Success / error message -->
+                <p id="form-message" style="margin-top:1.5rem; color:#fff"></p>
+            </form>
+
+            <!-- Hidden iframe to submit without reload -->
+            <iframe name="hidden_iframe" style="display:none;"></iframe>
 
             </div>
         </div>
-    </section> -->
-    <!-- End Form Area -->
-
+    </section>
     
     <!-- ========================= scroll-top ========================= -->
     <a href="#" class="scroll-top">
@@ -293,56 +259,11 @@
     <script src="assets/js/glightbox.min.js"></script>
     <script src="assets/js/count-up.min.js"></script>
     <script src="assets/js/main.js"></script>
-    <script>
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz7YarXF2zmyD9hQAjbSokkdo4EW02Qx5OcVwJzki3TYkLtwZlLO9lwk5U-vWEYad0t/exec"; // replace with your Web App URL
+    <script src="assets/js/form-handler.js"></script>
 
-// Grab the form and button
-const form = document.querySelector('.form-container');
-const submitBtn = form.querySelector('.submit-button a');
 
-// Optional: hidden source (referrer)
-const source = document.createElement('input');
-source.type = 'hidden';
-source.value = document.referrer || 'direct';
-form.appendChild(source);
 
-// Message element
-let messageEl = document.createElement('p');
-messageEl.style.marginTop = '10px';
-form.appendChild(messageEl);
 
-submitBtn.addEventListener('click', async () => {
-    const name = form.querySelector('input[type="text"]').value.trim();
-    const email = form.querySelector('input[type="email"]').value.trim();
-    const whatsapp = form.querySelector('input[type="tel"]').value.trim();
-
-    if (!name || !email) {
-        messageEl.textContent = "Name and email are required.";
-        return;
-    }
-
-    messageEl.textContent = "Submitting...";
-
-    const data = { name, email, whatsapp, source: source.value };
-
-    try {
-        const res = await fetch(SCRIPT_URL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-        });
-        const result = await res.json();
-        if (result.success) {
-            messageEl.textContent = "You're on the waitlist 🎉";
-            form.reset();
-        } else {
-            messageEl.textContent = result.message || "Something went wrong. Try again.";
-        }
-    } catch (err) {
-        messageEl.textContent = "Network error. Please retry.";
-    }
-});
-</script>
 
 
     
